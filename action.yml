@@ -1,0 +1,19 @@
+name: 'upload-action'
+description: 'Upload Static Action'
+author: markuskobler
+
+inputs:
+  bucket:
+    description: 'GCS bucket to upload assets to'
+    required: true
+  root:
+    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
+    required: false
+  prefix:
+    description: 'Add a prefix to resources'
+    required: false
+
+runs:
+  using: docker
+  image: docker://ghcr.io/markuskobler/upload-action:latest
+  entrypoint: gcs
